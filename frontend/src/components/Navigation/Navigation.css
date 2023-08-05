@@ -1,0 +1,14 @@
+.navigation-buttons {
+display: flex;
+justify-content: flex-end;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.create-spot-button {
+    display: flex;
+    justify-content: flex-end;
+}

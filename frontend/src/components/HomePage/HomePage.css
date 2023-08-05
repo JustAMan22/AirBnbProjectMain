@@ -1,0 +1,75 @@
+.all-spots-home {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .each-tile-spot {
+    position: relative;
+    width: 350px;
+    height: 325px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 3%;
+  }
+
+  .tile-preview-images-home {
+    width: fit-content;
+    height: fit-content;
+    object-fit: cover;
+    border-radius: 3%;
+    overflow: hidden;
+  }
+
+  .tile-preview-images-home-container {
+    display: flex;
+    border: 2px solid black;
+    border-radius: 3%;
+  }
+
+  .tile-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30%;
+    border-radius: 3%;
+  }
+
+
+  .star-rating {
+    width: fit-content;
+    position: absolute;
+    right: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: bolder;
+    color: black;
+  }
+
+  .home-price {
+    margin: 0;
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+  }
+
+  .home-city-state {
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+  }
+
+
+  a,
+NavLink {
+  text-decoration: none; /* Remove underlines from unvisited links */
+}
+
+a:visited,
+NavLink:visited {
+  text-decoration: none; /* Remove underlines from visited links */
+}
+
+.active-link {
+ text-decoration: none;
+ font-weight: bold;
+}

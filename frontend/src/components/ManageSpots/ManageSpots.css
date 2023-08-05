@@ -1,0 +1,6 @@
+.delete-update-buttons {
+    /* Add your other styles here */
+
+    /* Use flexbox to arrange the buttons in a row */
+    display: flex; /* Adjust the gap between buttons as needed */
+  }
