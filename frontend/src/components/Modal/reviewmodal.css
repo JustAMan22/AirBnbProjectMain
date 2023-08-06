@@ -1,0 +1,75 @@
+.review-modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.review-modal-content {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px;
+  height: 260px;
+}
+
+.review-modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-button {
+  font-size: 1.5rem;
+  color: #aaa;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+h2 {
+  text-align: center;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.stars {
+  font-size: 24px;
+}
+
+.star {
+  cursor: pointer;
+}
+
+.star.filled {
+  color: rgb(255, 90, 95);
+}
+
+.review-text {
+  margin: 10px 0;
+  padding: 10px;
+  resize: vertical;
+}
+
+.submit-button {
+  padding: 10px;
+  background-color: rgb(255, 90, 95);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: rgb(255, 79, 85);
+}

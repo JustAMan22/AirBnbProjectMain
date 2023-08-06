@@ -1,47 +1,89 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import "./reviewmodal.css";
 
 const ReviewModal = ({ isOpen, onClose, onSubmit }) => {
   const [stars, setStars] = useState(0);
   const [review, setReview] = useState("");
+  const [serverError, setServerError] = useState(null); // New state for server error handling
+  const modalRef = useRef();
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      // Reset the state when modal is closed
+      setStars(0);
+      setReview("");
+      setServerError(null);
+    }
+  }, [isOpen]);
+
+  const handleClickOutside = (e) => {
+    if (modalRef.current && !modalRef.current.contains(e.target)) {
+      onClose();
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const reviewData = {
+      stars: parseFloat(stars),
+      review,
+    };
+
+    try {
+      await onSubmit(reviewData);
+      onClose();
+    } catch (error) {
+      setServerError("Failed to submit the review. Please try again later.");
+    }
+  };
+
+  const isSubmitDisabled = stars === 0 || review.length < 10;
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const reviewData = {
-      stars: parseFloat(stars), // Parse the stars as a float
-      review,
-    };
-    onSubmit(reviewData);
-    onClose();
-  };
-
   return (
     <div className="review-modal">
-      <div className="review-modal-content">
+      <div className="review-modal-content" ref={modalRef}>
         <span className="close-button" onClick={onClose}>
           &times;
         </span>
-        <h2>Leave a Review</h2>
+        <h2>How was your stay?</h2>
+        {serverError && <p className="error-message">{serverError}</p>}
         <div className="rating">
-          <span>Rating:</span>
-          <input
-            type="number" // Change input type to 'number'
-            min="1"
-            max="5"
-            step="0.1"
-            value={stars}
-            onChange={(e) => setStars(e.target.value)}
-          />
+          <span>Stars:</span>
+          <div className="stars">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <span
+                key={star}
+                className={`star ${star <= stars ? "filled" : ""}`}
+                onClick={() => setStars(star)}
+              >
+                ★
+              </span>
+            ))}
+          </div>
         </div>
         <textarea
           className="review-text"
           value={review}
-          placeholder="Write your review here..."
+          placeholder="Leave your review here..."
           onChange={(e) => setReview(e.target.value)}
         />
-        <button className="submit-button" onClick={handleSubmit}>
-          Submit Review
+        <button
+          className={`submit-button ${isSubmitDisabled ? "disabled" : ""}`}
+          onClick={handleSubmit}
+          disabled={isSubmitDisabled}
+        >
+          Submit Your Review
         </button>
       </div>
     </div>

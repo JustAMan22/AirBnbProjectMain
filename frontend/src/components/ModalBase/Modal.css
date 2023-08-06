@@ -1,0 +1,44 @@
+/* Modal.css */
+.modal-container {
+  position: relative;
+}
+
+.modal-button {
+  padding: 10px;
+  display: block;
+  font-size: small;
+  background-color: transparent;
+  border: none;
+  margin: auto;
+  transition: color 0.5s ease;
+}
+
+.modal-button:hover {
+  color: rgb(250, 134, 138);
+  cursor: pointer;
+}
+
+.modal-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add more styles as needed */

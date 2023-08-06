@@ -1,6 +1,76 @@
-.delete-update-buttons {
-    /* Add your other styles here */
+.manage-spots-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-    /* Use flexbox to arrange the buttons in a row */
-    display: flex; /* Adjust the gap between buttons as needed */
-  }
+.spots-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.each-tile-spot {
+  width: fit-content;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.tile-preview-images-home {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.div-city-state-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-night {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.city-state-rating-text {
+  font-size: medium;
+  margin: 0;
+}
+
+.night-text {
+  padding-left: 5px;
+}
+
+.home-price-text {
+  font-size: medium;
+  font-weight: bold;
+}
+
+.delete-update-buttons {
+  gap: 5px;
+  display: flex;
+}
+
+a,
+NavLink {
+  text-decoration: none; /* Remove underlines from unvisited links */
+}
+
+a:visited,
+NavLink:visited {
+  text-decoration: none; /* Remove underlines from visited links */
+}
+
+.spots-navlink {
+  width: fit-content;
+  text-decoration: none;
+  color: black;
+}

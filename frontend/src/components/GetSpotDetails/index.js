@@ -5,6 +5,7 @@ import { fetchReviews } from "../../store/reviews";
 import { fetchSpot } from "../../store/spots";
 import { createReviewPost, deleteReviewFetch } from "../../store/reviews";
 import ReviewModal from "../Modal/reviewmodal";
+import "./GetSpotDetails.css";
 
 function GetSpotDetailsFunc() {
   const dispatch = useDispatch();
@@ -28,7 +29,6 @@ function GetSpotDetailsFunc() {
 
   const owner = spot?.Owner;
   const images = spot?.SpotImages;
-  console.log(images);
 
   const handleReserveClick = () => {
     alert("Feature coming soon");
@@ -81,46 +81,105 @@ function GetSpotDetailsFunc() {
           onClose={handleCloseReviewModal}
           onSubmit={handleSubmitReview}
         />
-        <button onClick={handleReviewClick}>Post a review</button>
+        <button onClick={handleReviewClick} className="post-review-btn">
+          Post a review
+        </button>
       </div>
     );
   }
 
+  const formatDate = (dateString) => {
+    if (!dateString) return ""; // Return an empty string if dateString is falsy
+    const date = new Date(dateString);
+    const month = date.toLocaleString("default", { month: "long" });
+    const year = date.getFullYear();
+    return `${month} ${year}`;
+  };
+  const reviewCount = spot?.numReviews;
+  const reviewText =
+    reviewCount === 1 ? `${reviewCount} Review` : `${reviewCount} Reviews`;
+  const hasReviews = reviewCount > 0;
+  const formattedAvgRating = spot?.avgRating?.toFixed(2);
+
+  reviewGet.sort((a, b) => new Date(b?.createdAt) - new Date(a?.createdAt));
+
+  const haveReviews = reviewGet.length > 0;
+
   return (
     <div className="singular_spot">
       <h1>{spot?.name}</h1>
-      <h3>{spot?.city}</h3>
-      <h3>{spot?.state}</h3>
-      <h3>{spot?.country}</h3>
-      <h2>
-        Hosted By: {owner?.firstName} {owner?.lastName}
-      </h2>
-      <p>{spot?.description}</p>
-      <p>
-        ★{spot?.avgRating} ({spot?.numReviews})
-      </p>
+      <h3>
+        {spot?.city}, {spot?.state}, {spot?.country}
+      </h3>
       <div className="images-get-spots">
         {images &&
-          images?.map((image) => <img src={image} alt="Spot view"></img>)}
+          images?.map((image, index) => (
+            <img
+              src={image.url}
+              alt="Spot view"
+              key={image.id}
+              className={`spot-image spot-image-${index + 1}`}
+            ></img>
+          ))}
+      </div>
+      <div className="callout-host-price-container">
+        <div className="just-price-host">
+          <h2 className="hosted-by">
+            Hosted By: {owner?.firstName} {owner?.lastName}
+          </h2>
+          <p>{spot?.description}</p>
+        </div>
+        <div className="callout-box">
+          <div>
+            <p className="price-text-callout">
+              ${spot?.price} <span className="text-night">night</span>
+            </p>
+          </div>
+          <div>
+            {hasReviews ? (
+              <p className="rating-text-callout">
+                ★{formattedAvgRating} · {reviewText}
+              </p>
+            ) : (
+              <p className="rating-text-callout">★{formattedAvgRating} New</p>
+            )}
+          </div>
+          <button onClick={handleReserveClick} className="btn-reserve-callout">
+            Reserve
+          </button>
+        </div>
+      </div>
+      <div className="review-info-container">
+        {hasReviews && (
+          <p>
+            ★{formattedAvgRating} · {reviewText}
+          </p>
+        )}
+        {!hasReviews && reviewButton && <p>★{formattedAvgRating} New</p>}
+        {reviewButton}
       </div>
       <div className="reviews-get-spots">
-        {reviewGet &&
-          reviewGet?.map((review) => (
+        {haveReviews ? (
+          reviewGet.map((review) => (
             <div key={review?.id}>
-              <p>{review?.review}</p>
+              <h2 className="review-first-names">{review?.User?.firstName}</h2>
+              <h3 className="date">{formatDate(review?.createdAt)}</h3>
+              <p className="review-text-p">{review?.review}</p>
               {review?.User?.id === sessionUser?.id && (
                 <button onClick={() => handleDeleteReview(review?.id)}>
                   Delete
                 </button>
               )}
             </div>
-          ))}
+          ))
+        ) : (
+          <>
+            {sessionUser &&
+              sessionUser?.id !== spot?.ownerId &&
+              !reviewGet?.length && <p>Be the first to post a review!</p>}
+          </>
+        )}
       </div>
-      <div className="callout-box">
-        <p>{spot?.price}</p>
-        <button onClick={handleReserveClick}>Reserve</button>
-      </div>
-      {reviewButton}
       {/* Delete Confirmation Modal */}
       {isDeleteModalOpen && (
         <div className="confirmation-modal">

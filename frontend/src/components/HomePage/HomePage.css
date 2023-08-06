@@ -1,75 +1,81 @@
 .all-spots-home {
-    display: flex;
-    justify-content: space-evenly;
-  }
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  .each-tile-spot {
-    position: relative;
-    width: 350px;
-    height: 325px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 3%;
-  }
+.spots-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
 
-  .tile-preview-images-home {
-    width: fit-content;
-    height: fit-content;
-    object-fit: cover;
-    border-radius: 3%;
-    overflow: hidden;
-  }
+.each-tile-spot {
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+.tile-preview-images-home {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px gray solid;
+}
 
-  .tile-preview-images-home-container {
-    display: flex;
-    border: 2px solid black;
-    border-radius: 3%;
-  }
+.div-city-state-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .tile-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 30%;
-    border-radius: 3%;
-  }
+.price-night {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
+.city-state-rating-text {
+  font-size: medium;
+  margin: 0;
+}
 
-  .star-rating {
-    width: fit-content;
-    position: absolute;
-    right: 0;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
-    font-weight: bolder;
-    color: black;
-  }
+.night-text {
+  padding-left: 5px;
+}
 
-  .home-price {
-    margin: 0;
-    font-size: 14px;
-    font-family: 'Courier New', Courier, monospace;
-    color: black;
-  }
+.home-price-text {
+  font-size: medium;
+  font-weight: bold;
+}
 
-  .home-city-state {
-    font-size: 14px;
-    font-family: 'Courier New', Courier, monospace;
-    color: black;
-  }
+.create-btn-manage-spots-h1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 
-
-  a,
+a,
 NavLink {
-  text-decoration: none; /* Remove underlines from unvisited links */
+  text-decoration: none;
 }
 
 a:visited,
 NavLink:visited {
-  text-decoration: none; /* Remove underlines from visited links */
+  text-decoration: none;
 }
 
-.active-link {
- text-decoration: none;
- font-weight: bold;
+.spots-navlink {
+  text-decoration: none;
+  color: black;
+}
+
+.each-tile-spot:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }

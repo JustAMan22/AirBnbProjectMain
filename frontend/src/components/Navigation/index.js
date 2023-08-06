@@ -7,37 +7,30 @@ import "./Navigation.css";
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
 
-  let sessionLinks;
-  if (sessionUser) {
-    sessionLinks = (
-      <li>
-        <ProfileButton user={sessionUser} />
-        <NavLink to="/spots" className="create-spot-button">
-          <button>Create Spot</button>
-        </NavLink>
-        <NavLink to={`/users/${sessionUser.id}/spots`}>
-          <button>Manage Spots</button>
-        </NavLink>
-      </li>
-    );
-  } else {
-    sessionLinks = (
-      <li>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
-      </li>
-    );
-  }
-
   return (
-    <ul>
-      <li>
+    <div className="navigation-container">
+      <div className="logo-container">
         <NavLink exact to="/">
-          Home
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png"
+            alt="home-logo"
+            className="home-logo"
+          />
         </NavLink>
-      </li>
-      {isLoaded && sessionLinks}
-    </ul>
+      </div>
+      {isLoaded && sessionUser ? (
+        <div className="buttons-container">
+          <NavLink to="/spots" className="create-spot-button">
+            <div className="create-spot-button-container">
+              <button className="create-btn-actl">Create Spot</button>
+            </div>
+          </NavLink>
+          <ProfileButton user={sessionUser} />
+        </div>
+      ) : (
+        <ProfileButton user={sessionUser} />
+      )}
+    </div>
   );
 }
 

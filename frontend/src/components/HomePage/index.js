@@ -1,4 +1,3 @@
-// HomePage.js
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
@@ -24,30 +23,41 @@ function HomePage() {
 
   return (
     <div className="all-spots-home">
-      {equatesToThat?.map((spot) => (
-        <NavLink to={`/spots/${spot?.id}`} className="active-link">
-          <div className="each-tile-spot" key={spot?.id}>
-            <div className="tile-preview-images-home-container">
+      <ul className="spots-list">
+        {equatesToThat?.map((spot) => (
+          <NavLink
+            to={`/spots/${spot?.id}`}
+            className="spots-navlink"
+            title={spot?.name}
+          >
+            <li className="each-tile-spot" key={spot?.id}>
               <img
                 className="tile-preview-images-home"
                 src={spot?.previewImage}
                 alt="Preview of spot"
               ></img>
-            </div>
-            <div className="tile-details">
-              <div className="container-home-city-state-rating">
-                <h3 className="home-city-state">
-                  <div className="star-rating">
-                    {spot?.avgRating ? "★" + spot.avgRating : "New"}
-                  </div>
-                  {spot?.city}, {spot?.state}
-                </h3>
-                <h3 className="home-price">${spot?.price} night</h3>
+              <div className="div-city-state-rating">
+                <div>
+                  <h2 className="city-state-rating-text">
+                    {spot?.city}, {spot?.state + " "}
+                  </h2>
+                </div>
+                <div>
+                  {spot?.avgRating
+                    ? "★" + " " + spot?.avgRating.toFixed(2)
+                    : "★" + " " + "New"}
+                </div>
               </div>
-            </div>
-          </div>
-        </NavLink>
-      ))}
+              <div className="price-night">
+                <div>
+                  <h3 className="home-price-text">${spot?.price}</h3>
+                </div>
+                <div className="night-text">night</div>
+              </div>
+            </li>
+          </NavLink>
+        ))}
+      </ul>
     </div>
   );
 }
