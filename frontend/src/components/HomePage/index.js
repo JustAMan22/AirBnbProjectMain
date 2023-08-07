@@ -12,14 +12,11 @@ function HomePage() {
     dispatch(fetchSpots());
   }, [dispatch]);
 
-  console.log(spots);
-
   if (Object.keys(spots).length === 0) {
     return <div>Loading...</div>;
   }
 
   const equatesToThat = Object.values(spots);
-  console.log(equatesToThat);
 
   return (
     <div className="all-spots-home">

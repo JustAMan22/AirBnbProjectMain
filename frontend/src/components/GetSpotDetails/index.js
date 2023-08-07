@@ -155,7 +155,9 @@ function GetSpotDetailsFunc() {
             ★{formattedAvgRating} · {reviewText}
           </p>
         )}
-        {!hasReviews && reviewButton && <p>★{formattedAvgRating} New</p>}
+        {!hasReviews && reviewButton && (
+          <p className="rating-under-desc-text">★{formattedAvgRating} New</p>
+        )}
         {reviewButton}
       </div>
       <div className="reviews-get-spots">
@@ -180,7 +182,6 @@ function GetSpotDetailsFunc() {
           </>
         )}
       </div>
-      {/* Delete Confirmation Modal */}
       {isDeleteModalOpen && (
         <div className="confirmation-modal">
           <div className="confirmation-modal-content">

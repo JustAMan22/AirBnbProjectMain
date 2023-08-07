@@ -1,0 +1,84 @@
+
+.create-spot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px auto;
+  width: 400px;
+  padding: 20px;
+  padding-right: 40px;
+  border-radius: 10px;
+  background-color: white;
+  border: 2px solid rgb(255, 90, 95)
+}
+
+.createSpot-title {
+  font-size: 24px;
+  color: black;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.createSpot-subtitle {
+  font-size: 18px;
+  margin-bottom: 0px;
+  color: black;
+  text-align: left;
+  font-weight: normal;
+}
+
+.createSpot-desc {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: black;
+  text-align: left;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+.createSpot-label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.createSpot-input {
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+  color: black;
+}
+
+.createSpot-input-description {
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+  padding-bottom: 75px;
+  color: black;
+}
+
+.createSpot-error {
+  color: red;
+  margin-bottom: 5px;
+}
+
+.createSpot-submit-button {
+  padding: 10px 20px;
+  background-color: rgb(255, 90, 95);
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: fit-content;
+  margin: auto;
+}
+
+.createSpot-label p {
+  margin: 0;
+}

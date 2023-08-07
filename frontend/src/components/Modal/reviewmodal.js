@@ -57,9 +57,14 @@ const ReviewModal = ({ isOpen, onClose, onSubmit }) => {
           &times;
         </span>
         <h2>How was your stay?</h2>
-        {serverError && <p className="error-message">{serverError}</p>}
+        {serverError && <p className="error-message-review">{serverError}</p>}
+        <textarea
+          className="review-text"
+          value={review}
+          placeholder="Leave your review here..."
+          onChange={(e) => setReview(e.target.value)}
+        />
         <div className="rating">
-          <span>Stars:</span>
           <div className="stars">
             {[1, 2, 3, 4, 5].map((star) => (
               <span
@@ -70,14 +75,9 @@ const ReviewModal = ({ isOpen, onClose, onSubmit }) => {
                 ★
               </span>
             ))}
+            <span className="stars-text">Stars</span>
           </div>
         </div>
-        <textarea
-          className="review-text"
-          value={review}
-          placeholder="Leave your review here..."
-          onChange={(e) => setReview(e.target.value)}
-        />
         <button
           className={`submit-button ${isSubmitDisabled ? "disabled" : ""}`}
           onClick={handleSubmit}

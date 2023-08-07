@@ -17,13 +17,18 @@
 }
 
 .singular_spot .reviews-get-spots button {
-  background-color: #ff3b30;
+  background-color: gray;
   color: #fff;
-  padding: 8px 16px;
-  font-size: 16px;
+  padding: 2px 2px 2px 2px;
+  font-size: 13px;
+  width: 75px;
   border-radius: 4px;
   cursor: pointer;
   margin-right: 10px;
+  margin-bottom: 15px;
+  margin-top: 0;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
 }
 
 .singular_spot .reviews-get-spots button:last-child {
@@ -32,9 +37,9 @@
 
 .review-first-names {
   font-weight: bold;
-  font-size: 20x;
+  font-size: 20px;
   text-align: left;
-  padding-top: 15px;
+  margin: 0;
 }
 
 .hosted-by {
@@ -49,6 +54,7 @@
 
 .review-text-p {
   text-align: left;
+  border-bottom: 1px solid black;
 }
 
 .images-get-spots {
@@ -108,7 +114,13 @@
 
 .rating-text-callout {
   grid-area: rating;
-  font-size: mediums;
+  font-size: medium;
+}
+
+.rating-under-desc-text {
+  font-size: 25px;
+  margin-top: 5px;
+  margin-bottom: 0;
 }
 
 .btn-reserve-callout {
@@ -121,6 +133,8 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: small;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
 }
 
 .just-price-host {
@@ -187,4 +201,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.post-review-btn {
+  background-color: gray;
+  border: 1px solid black;
+  cursor: pointer;
+  color: white;
+  border-radius: 2px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  width: 100px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.post-review-btn:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-reserve-callout:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.singular_spot .reviews-get-spots button:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }

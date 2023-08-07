@@ -68,7 +68,7 @@ function LoginFormPage() {
           onClick={() => dispatch(sessionActions.login(demoUser))}
           className="login-demo-button"
         >
-          Demo User
+          Login as Demo User
         </button>
       </form>
     </div>

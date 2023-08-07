@@ -57,16 +57,56 @@
 .delete-update-buttons {
   gap: 5px;
   display: flex;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.update-button {
+  background-color: gray;
+  color: white;
+  border: 1.5px solid black;
+  border-radius: 5px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.update-button:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.create-spot-button-mng {
+  background-color: gray;
+  color: white;
+  width: fit-content;
+  margin-left: 10px;
+  border: 2px solid black;
+  margin-top: 0;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  border-radius: 5px;
+}
+
+.manage-spots-h1 {
+  font-size: 32px;
+  margin-bottom: 2px;
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+
+.create-spot-button-mng:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 a,
 NavLink {
-  text-decoration: none; /* Remove underlines from unvisited links */
+  text-decoration: none;
 }
 
 a:visited,
 NavLink:visited {
-  text-decoration: none; /* Remove underlines from visited links */
+  text-decoration: none;
 }
 
 .spots-navlink {

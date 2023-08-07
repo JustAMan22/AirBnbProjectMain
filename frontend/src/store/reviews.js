@@ -31,7 +31,6 @@ export const fetchReviews = (spotId) => async (dispatch) => {
   if (res.ok) {
     const reviews = await res.json();
     dispatch(loadReviews(reviews.Reviews));
-    console.log(res, "hello");
     return res;
   }
 };

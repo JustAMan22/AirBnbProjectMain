@@ -50,11 +50,7 @@ function ProfileButton({ user }) {
         <ul className={ulClassName} ref={ulRef}>
           {user ? (
             <div>
-              <li>Hello, {user.firstName}!</li>
-              <li>{user.username}</li>
-              <li>
-                {user.firstName} {user.lastName}
-              </li>
+              <li className="user-firstname-text">Hello, {user.firstName}!</li>
               <li className="email-text-profile">{user.email}</li>
               <li>
                 <NavLink to={`/users/${sessionUser.id}/spots`}>

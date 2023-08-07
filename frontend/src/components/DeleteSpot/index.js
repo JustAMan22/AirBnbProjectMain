@@ -1,23 +1,21 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { deleteSpot } from "../../store/spots";
 import "./DeleteSpot.css";
 
 function DeleteSpot({ spotId }) {
   const dispatch = useDispatch();
-  const history = useHistory();
-  const spot = useSelector((state) => state?.spot[spotId]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-  const handleDeleteButtonClick = () => {
+  const handleDeleteButtonClick = (e) => {
+    e.stopPropagation();
     setIsDeleteModalOpen(true);
   };
 
   const handleConfirmDelete = async () => {
     try {
       await dispatch(deleteSpot(spotId));
-      window.location.reload();
+      setIsDeleteModalOpen(false);
     } catch (error) {
       console.error("Error deleting spot:", error);
     }
@@ -29,7 +27,12 @@ function DeleteSpot({ spotId }) {
 
   return (
     <div className="delete-spot-container">
-      <button onClick={handleDeleteButtonClick}>Delete</button>
+      <button
+        onClick={handleDeleteButtonClick}
+        className="delete-btn-delete-spot"
+      >
+        Delete
+      </button>
 
       {isDeleteModalOpen && (
         <div className="delete-spot-modal">
