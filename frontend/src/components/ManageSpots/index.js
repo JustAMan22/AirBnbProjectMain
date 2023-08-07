@@ -56,7 +56,7 @@ function ManageSpots() {
                   </div>
                   <div>
                     {spot?.avgRating !== null &&
-                    spot?.avgRating !== undefined ? (
+                    typeof spot?.avgRating === "number" ? (
                       <span>★ {spot?.avgRating.toFixed(2)}</span>
                     ) : (
                       <span>★ New</span>
@@ -76,7 +76,7 @@ function ManageSpots() {
                 <button className="update-button">Update</button>
               </NavLink>
               <div onClick={(e) => e.preventDefault()}>
-                <DeleteSpot spotId={spot?.id} />
+                {spot && <DeleteSpot spotId={spot?.id} />}
               </div>
             </div>
           </div>

@@ -26,13 +26,14 @@ function HomePage() {
             to={`/spots/${spot?.id}`}
             className="spots-navlink"
             title={spot?.name}
+            key={spot?.id} // Moved key to NavLink
           >
-            <li className="each-tile-spot" key={spot?.id}>
+            <li className="each-tile-spot">
               <img
                 className="tile-preview-images-home"
                 src={spot?.previewImage}
                 alt="Preview of spot"
-              ></img>
+              />
               <div className="div-city-state-rating">
                 <div>
                   <h2 className="city-state-rating-text">
@@ -40,7 +41,9 @@ function HomePage() {
                   </h2>
                 </div>
                 <div>
-                  {spot?.avgRating !== null && spot?.avgRating !== undefined ? (
+                  {spot?.avgRating !== null &&
+                  spot?.avgRating !== undefined &&
+                  !isNaN(spot?.avgRating) ? (
                     <span>★ {spot?.avgRating.toFixed(2)}</span>
                   ) : (
                     <span>★ New</span>
