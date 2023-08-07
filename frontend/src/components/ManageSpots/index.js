@@ -55,9 +55,12 @@ function ManageSpots() {
                     </h2>
                   </div>
                   <div>
-                    {spot?.avgRating
-                      ? "★" + " " + spot?.avgRating.toFixed(2)
-                      : "★" + " " + "New"}
+                    {spot?.avgRating !== null &&
+                    spot?.avgRating !== undefined ? (
+                      <span>★ {spot?.avgRating.toFixed(2)}</span>
+                    ) : (
+                      <span>★ New</span>
+                    )}
                   </div>
                 </div>
                 <div className="price-night">
