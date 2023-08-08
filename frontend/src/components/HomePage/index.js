@@ -26,7 +26,7 @@ function HomePage() {
             to={`/spots/${spot?.id}`}
             className="spots-navlink"
             title={spot?.name}
-            key={spot?.id} // Moved key to NavLink
+            key={spot?.id}
           >
             <li className="each-tile-spot">
               <img
@@ -41,12 +41,10 @@ function HomePage() {
                   </h2>
                 </div>
                 <div>
-                  {spot?.avgRating !== null &&
-                  spot?.avgRating !== undefined &&
-                  !isNaN(spot?.avgRating) ? (
-                    <span>★ {spot?.avgRating}</span>
+                  {spot?.avgRating !== "0.00" ? (
+                    <p>★ {spot?.avgRating}</p>
                   ) : (
-                    <span>★ New</span>
+                    <p>★ New</p>
                   )}
                 </div>
               </div>

@@ -64,7 +64,7 @@ module.exports = {
         },
         {
           spotId: 3,
-          url: "https://i.natgeofe.com/n/0bb49210-c2ec-42a5-a6b7-81c43b584857/15-wildlife-gallery-prod-yourshot-288748-10950766_3x4.jpg",
+          url: "https://g5d2h4c6.rocketcdn.me/wp-content/uploads/orangutan10facts-1.jpg",
           preview: true,
         },
         {

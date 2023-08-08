@@ -140,7 +140,7 @@ function GetSpotDetailsFunc() {
                 ★{spot?.avgRating} · {reviewText}
               </p>
             ) : (
-              <p className="rating-text-callout">★{spot?.avgRating} New</p>
+              <p className="rating-text-callout">★ New</p>
             )}
           </div>
           <button onClick={handleReserveClick} className="btn-reserve-callout">
@@ -155,7 +155,7 @@ function GetSpotDetailsFunc() {
           </p>
         )}
         {!hasReviews && reviewButton && (
-          <p className="rating-under-desc-text">★{spot?.avgRating} New</p>
+          <p className="rating-under-desc-text">★ New</p>
         )}
         {reviewButton}
       </div>
