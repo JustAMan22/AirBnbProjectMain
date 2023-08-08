@@ -44,7 +44,7 @@ function HomePage() {
                   {spot?.avgRating !== null &&
                   spot?.avgRating !== undefined &&
                   !isNaN(spot?.avgRating) ? (
-                    <span>★ {spot?.avgRating.toFixed(2)}</span>
+                    <span>★ {spot?.avgRating}</span>
                   ) : (
                     <span>★ New</span>
                   )}

@@ -89,7 +89,7 @@ function GetSpotDetailsFunc() {
   }
 
   const formatDate = (dateString) => {
-    if (!dateString) return ""; // Return an empty string if dateString is falsy
+    if (!dateString) return "";
     const date = new Date(dateString);
     const month = date.toLocaleString("default", { month: "long" });
     const year = date.getFullYear();
@@ -99,7 +99,6 @@ function GetSpotDetailsFunc() {
   const reviewText =
     reviewCount === 1 ? `${reviewCount} Review` : `${reviewCount} Reviews`;
   const hasReviews = reviewCount > 0;
-  const formattedAvgRating = spot?.avgRating?.toFixed(2);
 
   reviewGet.sort((a, b) => new Date(b?.createdAt) - new Date(a?.createdAt));
 
@@ -138,10 +137,10 @@ function GetSpotDetailsFunc() {
           <div>
             {hasReviews ? (
               <p className="rating-text-callout">
-                ★{formattedAvgRating} · {reviewText}
+                ★{spot?.avgRating} · {reviewText}
               </p>
             ) : (
-              <p className="rating-text-callout">★{formattedAvgRating} New</p>
+              <p className="rating-text-callout">★{spot?.avgRating} New</p>
             )}
           </div>
           <button onClick={handleReserveClick} className="btn-reserve-callout">
@@ -152,11 +151,11 @@ function GetSpotDetailsFunc() {
       <div className="review-info-container">
         {hasReviews && (
           <p>
-            ★{formattedAvgRating} · {reviewText}
+            ★{spot?.avgRating} · {reviewText}
           </p>
         )}
         {!hasReviews && reviewButton && (
-          <p className="rating-under-desc-text">★{formattedAvgRating} New</p>
+          <p className="rating-under-desc-text">★{spot?.avgRating} New</p>
         )}
         {reviewButton}
       </div>

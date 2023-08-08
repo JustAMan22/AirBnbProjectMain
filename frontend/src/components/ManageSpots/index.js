@@ -57,7 +57,7 @@ function ManageSpots() {
                   <div>
                     {spot?.avgRating !== null &&
                     typeof spot?.avgRating === "number" ? (
-                      <span>★ {spot?.avgRating.toFixed(2)}</span>
+                      <span>★ {spot?.avgRating}</span>
                     ) : (
                       <span>★ New</span>
                     )}

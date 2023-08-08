@@ -47,7 +47,7 @@ module.exports = {
           lat: 3.597031,
           lng: 98.678513,
           name: "Orangutan Central",
-          description: "🦧",
+          description: "The place where men roam amongst the Tangs",
           price: 99999.99,
           avgRating: 0,
         },

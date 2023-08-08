@@ -189,7 +189,7 @@ router.get("/", validateQuery, async (req, res, next) => {
       ],
       group: ["Spot.id"],
     });
-    const avgRating = spotRating.dataValues.avgRating;
+    const avgRating = Number(spotRating.dataValues.avgRating).toFixed(2);
 
     if (spotRating) spot.dataValues.avgRating = avgRating;
   }
@@ -268,6 +268,10 @@ router.get("/:spotId", async (req, res, next) => {
     ],
     group: ["Spot.id", "Owner.id", "SpotImages.id"],
   });
+
+  const avgRating = Number(spot.dataValues.avgRating).toFixed(2);
+
+  if (spot) spot.dataValues.avgRating = avgRating;
 
   if (spot) {
     return res.status(200).json(spot);
